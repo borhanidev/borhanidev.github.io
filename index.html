@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Digital Clock functionality
+        function updateClock() {
+            const now = new Date();
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // Convert 0 to 12
+            hours = String(hours).padStart(2, '0');
+            
+            // Format the date
+            const options = { weekday: 'short', month: 'short', day: 'numeric' };
+            const dateStr = now.toLocaleDateString('en-US', options);
+            
+            document.getElementById('digital-clock').innerHTML = `${hours}:${minutes}:${seconds} ${ampm} <span class="date-small">${dateStr}</span>`;
+        }
+
+        // Update clock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial update
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <div class="profile-image">
+                <img id="profile-picture" src="https://i.postimg.cc/h4Xgt3h3/logome.png" alt="Profile Picture">
+            </div>
+            <div class="profile-info">
+                <h1 class="name">borhani</h1>
+                <p class="title">Web Developer & Designer, Editor</p>
+                <p class="bio">
+                    Hey there! 👋 I'm passionate about creating beautiful web experiences 
+                    and solving complex problems through code. I also make edits on youtube. When I'm not coding, 
+                    you'll find me exploring new technologies or enjoying a good cup of coffee.
+                </p>
+                <div class="skills">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
+                    <span>PHP</span>
+                    <span>After Effects</span>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/qborhani" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/60_Streaks" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://dsc.gg/aevorinstudios" class="social-icon"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
